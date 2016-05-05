@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <% for(var i=0; i<docs.length; i++) {
+        var keys=Object.keys(docs[i]);
+    %>
+    <h3><%= docs[i]["cm:name"] %></h3>
+    <h4>NodeId:<%= docs[i]["id"] %></h4>
+    <h4>PATH:<%= docs[i]["PATH"] %></h4>
+        <ul>
+            <!--<%- JSON.stringify(docs[i]) %>-->
+            <% keys.forEach(function(key) { %>
+                <li><span class="key"><%= key %>:</span>  <span class="value"><%= docs[i][key] %></span></li>
+            <% }); %>
+        </ul>
+    <% } %>
+  </body>
+</html>
